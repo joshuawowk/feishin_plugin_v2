@@ -1,11 +1,11 @@
 {
     "SDKVersion": 2,
-    "Author": "Felitendo",
+    "Author": "jwowk",
     "CodePath": "app.html",
     "Description": "Control Feishin, a modern self-hosted music player",
-    "Name": "Feishin",
+    "Name": "Feishin v2",
     "Icon": "actions/images/pluginIcon",
-    "URL": "https://github.com/Felodeck/Feishin-Plugin",
+    "URL": "https://github.com/joshuawowk/feishin_plugin_v2/",
     "Version": "1.0.0",
     "Software": {
         "MinimumVersion": "5.0"
@@ -20,7 +20,7 @@
             "MinimumVersion": "10"
         }
     ],
-    "Category": "Feishin",
+    "Category": "Feishin v2",
     "CategoryIcon": "actions/images/categoryIcon",
     "Actions": [
         {
@@ -32,7 +32,7 @@
                 }
             ],
             "Tooltip": "Play or pause the current track",
-            "UUID": "de.felitendo.feishin.playpause",
+            "UUID": "net.jwowk.feishin.playpause",
             "PropertyInspectorPath": "propertyinspector/index.html"
         },
         {
@@ -44,7 +44,7 @@
                 }
             ],
             "Tooltip": "Play the next track",
-            "UUID": "de.felitendo.feishin.next",
+            "UUID": "net.jwowk.feishin.next",
             "PropertyInspectorPath": "propertyinspector/index.html"
         },
         {
@@ -56,7 +56,7 @@
                 }
             ],
             "Tooltip": "Play the previous track",
-            "UUID": "de.felitendo.feishin.previous",
+            "UUID": "net.jwowk.feishin.previous",
             "PropertyInspectorPath": "propertyinspector/index.html"
         },
         {
@@ -68,7 +68,7 @@
                 }
             ],
             "Tooltip": "Toggle shuffle mode",
-            "UUID": "de.felitendo.feishin.shuffle",
+            "UUID": "net.jwowk.feishin.shuffle",
             "PropertyInspectorPath": "propertyinspector/index.html"
         },
         {
@@ -80,7 +80,31 @@
                 }
             ],
             "Tooltip": "Toggle repeat mode",
-            "UUID": "de.felitendo.feishin.repeat",
+            "UUID": "net.jwowk.feishin.repeat",
+            "PropertyInspectorPath": "propertyinspector/index.html"
+        },
+        {
+            "Icon": "actions/images/volumeupIcon",
+            "Name": "Volume Up",
+            "States": [
+                {
+                    "Image": "actions/images/volumeupIcon"
+                }
+            ],
+            "Tooltip": "Increase the volume",
+            "UUID": "net.jwowk.feishin.volumeup",
+            "PropertyInspectorPath": "propertyinspector/index.html"
+        },
+        {
+            "Icon": "actions/images/volumedownIcon",
+            "Name": "Volume Down",
+            "States": [
+                {
+                    "Image": "actions/images/volumedownIcon"
+                }
+            ],
+            "Tooltip": "Decrease the volume",
+            "UUID": "net.jwowk.feishin.volumedown",
             "PropertyInspectorPath": "propertyinspector/index.html"
         }
     ]

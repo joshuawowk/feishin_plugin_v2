@@ -2,7 +2,7 @@
 /// <reference path="libs/js/stream-deck.js" />
 
 // WebSocket URL for connecting to the Feishin server
-const FEISHIN_WS_URL = 'ws://localhost:4333'; // Default URL, make this configurable
+const FEISHIN_WS_URL = 'ws://NUC-01:4333'; // Default URL, make this configurable
 
 // WebSocket connection instance
 let feishinWs = null;
@@ -11,11 +11,18 @@ let feishinWs = null;
 let currentPlaybackStatus = 'PAUSED';
 
 // Stream Deck actions for controlling playback and settings
-const playPauseAction = new Action('de.felitendo.feishin.playpause');
-const nextAction = new Action('de.felitendo.feishin.next');
-const previousAction = new Action('de.felitendo.feishin.previous');
-const shuffleAction = new Action('de.felitendo.feishin.shuffle');
-const repeatAction = new Action('de.felitendo.feishin.repeat');
+const playPauseAction = new Action('net.jwowk.feishin.playpause');
+const nextAction = new Action('net.jwowk.feishin.next');
+const previousAction = new Action('net.jwowk.feishin.previous');
+const shuffleAction = new Action('net.jwowk.feishin.shuffle');
+const repeatAction = new Action('net.jwowk.feishin.repeat');
+
+// Stream Deck actions for controlling volume
+const volumeUpAction = new Action('net.jwowk.feishin.volumeup');
+const volumeDownAction = new Action('net.jwowk.feishin.volumedown');
+
+// Current volume level (default to 50, can be updated dynamically)
+let currentVolume = 50;
 
 /**
  * The first event fired when Stream Deck starts.
@@ -79,7 +86,7 @@ function authenticate(username, password) {
  */
 function handleFeishinMessage(data) {
     console.log('Received message from Feishin:', data);
-    switch(data.event) {
+    switch (data.event) {
         case 'state': // Update all buttons with the current playback state
             updateAllButtons(data.data);
             break;
@@ -92,8 +99,12 @@ function handleFeishinMessage(data) {
         case 'repeat': // Update the repeat button
             updateRepeatButton(data.data);
             break;
+        case 'volume': // Update the current volume
+            updateVolume(data.data);
+            break;
     }
 }
+
 /**
  * Updates all buttons on the Stream Deck with the current playback state.
  * @param {Object} state - The current playback state from the Feishin server.
@@ -204,5 +215,38 @@ repeatAction.onKeyUp(({ action, context, device, event, payload }) => {
         feishinWs.send(JSON.stringify({ event: 'repeat' }));
     }
 });
+
+/**
+ * Handles the volume up button press event.
+ * Sends a 'volume' command to the Feishin server to increase the volume.
+ */
+volumeUpAction.onKeyUp(({ action, context, device, event, payload }) => {
+    if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
+        currentVolume = Math.min(currentVolume + 5, 100); // Increase volume by 5, max 100
+        feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
+        console.log('Increased volume to:', currentVolume);
+    }
+});
+
+/**
+ * Handles the volume down button press event.
+ * Sends a 'volume' command to the Feishin server to decrease the volume.
+ */
+volumeDownAction.onKeyUp(({ action, context, device, event, payload }) => {
+    if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
+        currentVolume = Math.max(currentVolume - 5, 0); // Decrease volume by 5, min 0
+        feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
+        console.log('Decreased volume to:', currentVolume);
+    }
+});
+
+/**
+ * Updates the current volume based on server messages.
+ * @param {number} volume - The new volume level from the server.
+ */
+function updateVolume(volume) {
+    currentVolume = volume;
+    console.log('Updated current volume to:', currentVolume);
+}
 
 // You can add more actions here as needed, such as volume control, etc.

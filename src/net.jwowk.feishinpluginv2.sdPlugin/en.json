@@ -2,23 +2,23 @@
   "Description": "Control Feishin, a modern self-hosted music player",
   "Name": "Feishin",
   "Category": "Feishin",
-  "de.felitendo.feishin.playpause": {
+  "net.jwowk.feishin.playpause": {
     "Name": "Play/Pause",
     "Tooltip": "Play or pause the current track"
   },
-  "de.felitendo.feishin.next": {
+  "net.jwowk.feishin.next": {
     "Name": "Next",
     "Tooltip": "Play the next track"
   },
-  "de.felitendo.feishin.previous": {
+  "net.jwowk.feishin.previous": {
     "Name": "Previous",
     "Tooltip": "Play the previous track"
   },
-  "de.felitendo.feishin.shuffle": {
+  "net.jwowk.feishin.shuffle": {
     "Name": "Shuffle",
     "Tooltip": "Toggle shuffle mode"
   },
-  "de.felitendo.feishin.repeat": {
+  "net.jwowk.feishin.repeat": {
     "Name": "Repeat",
     "Tooltip": "Toggle repeat mode"
   }
