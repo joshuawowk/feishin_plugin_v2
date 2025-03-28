@@ -1,0 +1,358 @@
+// Feishin Websocket Message Format
+// This file contains the message format used by the Feishin server to communicate with the client.
+
+// WEBSOCKET URL
+// The WebSocket URL is used by the Feishin client to establish a connection with the server.
+// ws://nuc-01.local:4333/
+
+// INITIAL CLIENT MESSAGE
+// This is the call sent by the Feishin client to initiate the connection.
+{"event":"authenticate","header":"Basic ZmVpc2hpbjpzdHJlYX1kZWNr"}
+
+
+// RESPONSE FROM SERVER
+// This is a JSON message from the Feishin server to indicate the current playback state.
+{
+    "data": {
+        "status": "playing",
+        "repeat": "none",
+        "shuffle": false,
+        "volume": 31,
+        "song": {
+        "album": "Knights of Cydonia",
+        "albumId": "e66587fe81fa3c2a434fb0826587d499",
+        "albumArtists": [
+            {
+            "id": "98a99cb9ab85f73270765595cd068a82",
+            "imageUrl": null,
+            "name": "Muse"
+            }
+        ],
+        "artists": [
+            {
+            "id": "98a99cb9ab85f73270765595cd068a82",
+            "imageUrl": null,
+            "name": "Muse"
+            }
+        ],
+        "participants": null,
+        "artistName": "Muse",
+        "bitRate": 320,
+        "bpm": null,
+        "channels": 2,
+        "comment": null,
+        "compilation": false,
+        "container": "mp3",
+        "createdAt": "2024-12-20",
+        "discNumber": 1,
+        "discSubtitle": null,
+        "duration": 367360,
+        "gain": null,
+        "genres": [],
+        "id": "b960bdc993a78595e37efa21d51b70bd",
+        "imagePlaceholderUrl": null,
+        "imageUrl": "https://navidrome.jwowk.net/rest/getCoverArt.view?id=b960bdc993a78595e37efa21d51b70bd&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f&v=1.13.0&c=Feishin&size=100",
+        "itemType": "song",
+        "lastPlayedAt": "2025-03-11T14:53:51.410815498Z",
+        "lyrics": "[]",
+        "name": "Knights of Cydonia",
+        "path": "/music/Muse/Knights of Cydonia/01 Knights of Cydonia.mp3",
+        "peak": {
+            "album": 1,
+            "track": 1
+        },
+        "playCount": 7,
+        "playlistItemId": "350",
+        "releaseDate": "2006-11-27T00:00:00.000Z",
+        "releaseYear": "2006",
+        "serverId": "VguGo9M4R9CV71Ppz1xeD",
+        "serverType": "navidrome",
+        "size": 14786227,
+        "streamUrl": "https://navidrome.jwowk.net/rest/stream.view?id=b960bdc993a78595e37efa21d51b70bd&v=1.13.0&c=Feishin&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f",
+        "trackNumber": 1,
+        "uniqueId": "EQMV89TPwG1GfvB59V_e8",
+        "updatedAt": "2024-12-19T23:48:50.5784419Z",
+        "userFavorite": false,
+        "userRating": null
+        },
+        "position": 320.514116
+    },
+    "event": "state"
+}
+
+// MESSAGE FROM SERVER WHEN TRACK CHANGES
+// This message is sent by the server when the currently playing track changes.
+
+{
+    "data": {
+        "album": "Burn the Earth! Leave It Behind!",
+        "albumId": "ca204c4d4e8a6e9f341d63176fae20f5",
+        "albumArtists": [
+            {
+                "id": "bcc7cd607e1eb6a8acae4a146e667246",
+                "imageUrl": null,
+                "name": "Wingnut Dishwashers Union"
+            }
+        ],
+        "artists": [
+            {
+                "id": "bcc7cd607e1eb6a8acae4a146e667246",
+                "imageUrl": null,
+                "name": "Wingnut Dishwashers Union"
+            }
+        ],
+        "participants": null,
+        "artistName": "Wingnut Dishwashers Union",
+        "bitRate": 884,
+        "bpm": 103,
+        "channels": 2,
+        "comment": null,
+        "compilation": false,
+        "container": "flac",
+        "createdAt": "2024-12-20",
+        "discNumber": 1,
+        "discSubtitle": null,
+        "duration": 222410,
+        "gain": null,
+        "genres": [
+            {
+                "id": "f1b6d2b0-376b-4646-a98e-31294e888cfb",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Alternative"
+            },
+            {
+                "id": "b65012c8-5f30-4193-a0f5-569c2ac7adb0",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Indie Rock"
+            }
+        ],
+        "id": "55f6e1d1216d597c01b100bbe71e527e",
+        "imagePlaceholderUrl": null,
+        "imageUrl": "https://navidrome.jwowk.net/rest/getCoverArt.view?id=55f6e1d1216d597c01b100bbe71e527e&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f&v=1.13.0&c=Feishin&size=100",
+        "itemType": "song",
+        "lastPlayedAt": "2025-02-08T18:36:18Z",
+        "lyrics": "[]",
+        "name": "Fuck Every Cop (Who Ever Did His Job)",
+        "path": "/music/Wingnut Dishwashers Union/Burn the Earth! Leave It Behind!/04 Fuck Every Cop (Who Ever Did His Job).flac",
+        "peak": {
+            "album": 1,
+            "track": 1
+        },
+        "playCount": 13,
+        "playlistItemId": "262",
+        "releaseDate": "2016-12-29T00:00:00.000Z",
+        "releaseYear": "2009",
+        "serverId": "VguGo9M4R9CV71Ppz1xeD",
+        "serverType": "navidrome",
+        "size": 24675603,
+        "streamUrl": "https://navidrome.jwowk.net/rest/stream.view?id=55f6e1d1216d597c01b100bbe71e527e&v=1.13.0&c=Feishin&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f",
+        "trackNumber": 4,
+        "uniqueId": "cbJZJXkQUT7i8ViycAdtT",
+        "updatedAt": "2024-12-19T18:47:31.2102729Z",
+        "userFavorite": false,
+        "userRating": null
+    },
+    "event": "song"
+}
+
+// ANOTHER MESSAGE FROM SERVER WHEN TRACK CHANGES
+
+{
+    "data": {
+        "album": "Goodbye & Good Riddance (5 Year Anniversary Edition)",
+        "albumId": "92dcd5c827fdb175821a9d131c88c50a",
+        "albumArtists": [
+            {
+                "id": "6543e358a5735283c1a21ee18aa38356",
+                "imageUrl": null,
+                "name": "Juice WRLD"
+            }
+        ],
+        "artists": [
+            {
+                "id": "6543e358a5735283c1a21ee18aa38356",
+                "imageUrl": null,
+                "name": "Juice Wrld"
+            }
+        ],
+        "participants": null,
+        "artistName": "Juice Wrld",
+        "bitRate": 821,
+        "bpm": null,
+        "channels": 2,
+        "comment": null,
+        "compilation": false,
+        "container": "flac",
+        "createdAt": "2024-12-20",
+        "discNumber": 1,
+        "discSubtitle": null,
+        "duration": 122290,
+        "gain": null,
+        "genres": [
+            {
+                "id": "ad85eb66-3ca1-4ac2-a099-baeac53ddee6",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Rap"
+            },
+            {
+                "id": "4827acfd-1f76-4a12-838e-461e32b8d747",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Hip Hop"
+            }
+        ],
+        "id": "0a386c8a667a3ec7c6eef6924351aea7",
+        "imagePlaceholderUrl": null,
+        "imageUrl": "https://navidrome.jwowk.net/rest/getCoverArt.view?id=0a386c8a667a3ec7c6eef6924351aea7&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f&v=1.13.0&c=Feishin&size=100",
+        "itemType": "song",
+        "lastPlayedAt": "2025-03-24T18:47:20Z",
+        "lyrics": "[]",
+        "name": "Hurt Me",
+        "path": "/music/Juice WRLD/Goodbye & Good Riddance (5 Year Anniversary Edition)/14 Juice Wrld - Hurt Me.flac",
+        "peak": {
+            "album": 1,
+            "track": 1
+        },
+        "playCount": 16,
+        "playlistItemId": "106",
+        "releaseDate": "2023-05-18T00:00:00.000Z",
+        "releaseYear": "2018",
+        "serverId": "VguGo9M4R9CV71Ppz1xeD",
+        "serverType": "navidrome",
+        "size": 12714678,
+        "streamUrl": "https://navidrome.jwowk.net/rest/stream.view?id=0a386c8a667a3ec7c6eef6924351aea7&v=1.13.0&c=Feishin&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f",
+        "trackNumber": 14,
+        "uniqueId": "Ewqip5PEJh30d0tY9RL_B",
+        "updatedAt": "2024-12-19T20:03:41.2470678Z",
+        "userFavorite": false,
+        "userRating": null
+    },
+    "event": "song"
+}
+
+// CLIENT MESSAGE TO SERVER TO CHANGE VOLUME
+{"event":"volume","volume":39}
+
+// SERVER RESPONSE TO VOLUME CHANGE
+{"data":39,"event":"volume"}
+
+// CLIENT MESSAGE TO SERVER TO PAUSE THE CURRENT TRACK
+{"event":"pause"}
+
+// SERVER RESPONSE TO PAUSE COMMAND
+{"data":"paused","event":"playback"}
+
+// CLIENT MESSAGE TO PLAY THE CURRENT TRACK
+{"event":"play"}
+
+// SERVER RESPONSE TO PLAY COMMAND
+{"data":"playing","event":"playback"}
+
+// CLIENT MESSAGE TO SKIP TO NEXT TRACK
+{"event":"next"}
+
+// FIRST SERVER RESPONSE TO NEXT COMMAND
+{"data":0,"event":"position"}
+
+// SECOND SERVER RESPONSE TO NEXT COMMAND
+{
+    "data": {
+        "album": "Fighting Demons",
+        "albumId": "f22518dc8c094244c4fec85ae4de42a4",
+        "albumArtists": [
+            {
+                "id": "6543e358a5735283c1a21ee18aa38356",
+                "imageUrl": null,
+                "name": "Juice WRLD"
+            }
+        ],
+        "artists": [
+            {
+                "id": "6543e358a5735283c1a21ee18aa38356",
+                "imageUrl": null,
+                "name": "Juice WRLD"
+            }
+        ],
+        "participants": null,
+        "artistName": "Juice WRLD",
+        "bitRate": 887,
+        "bpm": null,
+        "channels": 2,
+        "comment": null,
+        "compilation": false,
+        "container": "flac",
+        "createdAt": "2024-12-20",
+        "discNumber": 1,
+        "discSubtitle": null,
+        "duration": 173680,
+        "gain": null,
+        "genres": [
+            {
+                "id": "ad85eb66-3ca1-4ac2-a099-baeac53ddee6",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Rap"
+            },
+            {
+                "id": "4827acfd-1f76-4a12-838e-461e32b8d747",
+                "imageUrl": null,
+                "itemType": "genre",
+                "name": "Hip Hop"
+            }
+        ],
+        "id": "dc21622b063ff46aeefc21308bf512a9",
+        "imagePlaceholderUrl": null,
+        "imageUrl": "https://navidrome.jwowk.net/rest/getCoverArt.view?id=dc21622b063ff46aeefc21308bf512a9&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f&v=1.13.0&c=Feishin&size=100",
+        "itemType": "song",
+        "lastPlayedAt": "2025-03-22T23:09:43Z",
+        "lyrics": "[]",
+        "name": "Until the Plug Comes Back Around",
+        "path": "/music/Juice WRLD/Fighting Demons/16 Juice WRLD - Until the Plug Comes Back Around.flac",
+        "peak": {
+            "album": 1,
+            "track": 1
+        },
+        "playCount": 33,
+        "playlistItemId": "166",
+        "releaseDate": "2022-03-18T00:00:00.000Z",
+        "releaseYear": "2021",
+        "serverId": "VguGo9M4R9CV71Ppz1xeD",
+        "serverType": "navidrome",
+        "size": 19437817,
+        "streamUrl": "https://navidrome.jwowk.net/rest/stream.view?id=dc21622b063ff46aeefc21308bf512a9&v=1.13.0&c=Feishin&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f",
+        "trackNumber": 16,
+        "uniqueId": "C9p2PdLzEJstyzZ9TuPLf",
+        "updatedAt": "2024-12-19T19:58:00.9687939Z",
+        "userFavorite": true,
+        "userRating": null
+    },
+    "event": "song"
+}
+
+// CLIENT MESSAGE TO RATE A TRACK
+{"event":"rating","id":"dc21622b063ff46aeefc21308bf512a9","rating":5}
+
+// SERVER RESPONSE TO RATING COMMAND
+{"data":{"id":"dc21622b063ff46aeefc21308bf512a9","rating":5},"event":"rating"}
+
+// CLIENT MESSAGE TO FAVORITE A TRACK
+{"event":"favorite","favorite":true,"id":"7ce36949590c934f588bbd5bd670613b"}
+
+// SERVER RESPONSE TO FAVORITE COMMAND
+{"data":{"favorite":true,"id":"7ce36949590c934f588bbd5bd670613b"},"event":"favorite"}
+
+// CLIENT MESSAGE TO UNFAVORITE A TRACK
+{"event":"favorite","favorite":false,"id":"dc21622b063ff46aeefc21308bf512a9"}
+
+// SERVER RESPONSE TO UNFAVORITE COMMAND
+{"data":{"favorite":false,"id":"dc21622b063ff46aeefc21308bf512a9"},"event":"favorite"}
+
+// CLIENT MESSAGE TO SEEK TO A SPECIFIC POSITION IN THE TRACK
+{"event":"position","position":120}
+
+// SERVER RESPONSE TO SEEK COMMAND
+{"data":120,"event":"position"}
+
