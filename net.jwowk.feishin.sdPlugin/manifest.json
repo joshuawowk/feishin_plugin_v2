@@ -9,9 +9,14 @@
 			"Icon": "imgs/actions/playpause/icon",
 			"Tooltip": "Toggle play/pause on the connected Feishin host.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"States": [
-				{ "Image": "imgs/actions/playpause/key", "TitleAlignment": "bottom" }
+				{
+					"Image": "imgs/actions/playpause/key",
+					"TitleAlignment": "bottom"
+				}
 			]
 		},
 		{
@@ -20,8 +25,14 @@
 			"Icon": "imgs/actions/next/icon",
 			"Tooltip": "Skip to the next track.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Keypad"],
-			"States": [{ "Image": "imgs/actions/next/key" }]
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/next/key"
+				}
+			]
 		},
 		{
 			"Name": "Previous",
@@ -29,8 +40,14 @@
 			"Icon": "imgs/actions/previous/icon",
 			"Tooltip": "Go back to the previous track.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Keypad"],
-			"States": [{ "Image": "imgs/actions/previous/key" }]
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/previous/key"
+				}
+			]
 		},
 		{
 			"Name": "Volume Up",
@@ -38,8 +55,14 @@
 			"Icon": "imgs/actions/volumeup/icon",
 			"Tooltip": "Raise the Feishin volume.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Keypad"],
-			"States": [{ "Image": "imgs/actions/volumeup/key" }]
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/volumeup/key"
+				}
+			]
 		},
 		{
 			"Name": "Volume Down",
@@ -47,8 +70,14 @@
 			"Icon": "imgs/actions/volumedown/icon",
 			"Tooltip": "Lower the Feishin volume.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Keypad"],
-			"States": [{ "Image": "imgs/actions/volumedown/key" }]
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/volumedown/key"
+				}
+			]
 		},
 		{
 			"Name": "Volume Dial",
@@ -56,7 +85,9 @@
 			"Icon": "imgs/actions/volumedial/icon",
 			"Tooltip": "Turn to change volume, press to play/pause.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Encoder"],
+			"Controllers": [
+				"Encoder"
+			],
 			"Encoder": {
 				"layout": "$B1",
 				"TriggerDescription": {
@@ -65,7 +96,11 @@
 					"Touch": "Play / Pause"
 				}
 			},
-			"States": [{ "Image": "imgs/actions/volumedial/key" }]
+			"States": [
+				{
+					"Image": "imgs/actions/volumedial/key"
+				}
+			]
 		},
 		{
 			"Name": "Transport Dial",
@@ -73,7 +108,9 @@
 			"Icon": "imgs/actions/transport/icon",
 			"Tooltip": "Turn to skip tracks, press to play/pause.",
 			"PropertyInspectorPath": "ui/inspector.html",
-			"Controllers": ["Encoder"],
+			"Controllers": [
+				"Encoder"
+			],
 			"Encoder": {
 				"layout": "$A1",
 				"TriggerDescription": {
@@ -82,7 +119,11 @@
 					"Touch": "Play / Pause"
 				}
 			},
-			"States": [{ "Image": "imgs/actions/transport/key" }]
+			"States": [
+				{
+					"Image": "imgs/actions/transport/key"
+				}
+			]
 		}
 	],
 	"Category": "Feishin",
@@ -91,11 +132,22 @@
 	"Description": "Control Feishin playback (server-side or desktop) from your Stream Deck — play/pause, skip, and volume, with dials.",
 	"Icon": "imgs/plugin/marketplace",
 	"SDKVersion": 3,
-	"Software": { "MinimumVersion": "7.1" },
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
 	"OS": [
-		{ "Platform": "windows", "MinimumVersion": "10" },
-		{ "Platform": "mac", "MinimumVersion": "12" }
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		},
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		}
 	],
-	"Nodejs": { "Version": "24", "Debug": "enabled" },
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
 	"UUID": "net.jwowk.feishin"
 }
