@@ -1,50 +1,64 @@
-# Feishin Plugin for Elgato Stream Deck
+# Feishin Stream Deck Plugin
 
-![Feishin Plugin Logo](https://github.com/Felodeck/Feishin-Plugin/blob/main/previews/Preview.png)
+Control [Feishin](https://github.com/jeffvli/feishin) playback from an Elgato
+Stream Deck — play/pause, skip, and volume, including **Stream Deck + dials**.
 
-Control your Feishin music playback directly from your Elgato Stream Deck!
+Rebuilt on the modern [`@elgato/streamdeck`](https://github.com/elgatosf/streamdeck)
+Node SDK (SDKVersion 3, TypeScript). It talks to Feishin's built-in **Remote
+Control** WebSocket server, so it works against either the Feishin desktop app
+or a headless server-side audio host.
 
-## Features
+## Actions
 
-🎵 **Play/Pause**: Start or stop your music with a single tap.
+| Action | Controller | Behaviour |
+| --- | --- | --- |
+| Play / Pause | Key | Toggles playback (tracks state from the server) |
+| Next | Key | Next track |
+| Previous | Key | Previous track |
+| Volume Up | Key | +`step`% |
+| Volume Down | Key | −`step`% |
+| Volume Dial | Dial | Rotate = volume, press/tap = play-pause, shows volume % |
+| Transport Dial | Dial | Rotate = previous/next, press/tap = play-pause, shows track |
 
-⏭️ **Skip**: Jump to the next/previous track effortlessly.
+## Connect to Feishin
 
-🔀 **Shuffle**: Mix up your playlist for a fresh listening experience.
+The connection is configured once (stored as **global** settings shared by every
+Feishin button/dial). In any Feishin action's Property Inspector, set:
 
-🔁 **Repeat**: Keep your favorite tunes on loop.
+- **Host** — the Feishin host, e.g. `t630.local` or `192.168.0.160`
+  *(the old build was hardcoded to `NUC-01`; it's now configurable)*
+- **Port** — `4333` (default)
+- **Username / Password** — must match Feishin → Settings → Remote Control
+- **Volume step** — percent change per key press / dial tick (default `5`)
 
-🌐 **Multilingual**: Full support for English and German.
+On the Feishin side: Settings → Remote Control → enable the server and set the
+same port + credentials.
 
-## Installation
+## Build
 
-1. Download the latest release from the Elgato Marketplace [here](https://marketplace.elgato.com/product/feishin-d55fd48d-f102-4d21-83ce-bc1ea12beeba)
+Requires Node 24 and the Elgato CLI (`@elgato/cli`).
 
-## Configuration
+```bash
+npm install
+npm run build      # bundles to net.jwowk.feishin.sdPlugin/bin/plugin.js
+npm run watch      # rebuild + restart the plugin on change
+```
 
-To connect the plugin to your Feishin client:
+To install locally for development:
 
-1. Open Feishin
-2. Navigate to Settings
-3. Scroll down to the "Remote Control" section
-4. Toggle on "Enable remote control server"
-5. Set the username to "feishin"
-6. Set the password to "streamdeck"
+```bash
+streamdeck link net.jwowk.feishin.sdPlugin
+streamdeck restart net.jwowk.feishin
+```
 
-For detailed instructions, please refer to [My Feishin Plugin documentation](https://docs.felo.gg/docs/Feishin-Plugin/connect-feishin).
+## Protocol
 
-## Usage
-
-Simply drag and drop the desired Feishin actions onto your Stream Deck. Each button will display an icon representing its function.
-
-## Support
-
-If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/Felodeck/Feishin-Plugin/issues) or contact me [here](mailto:support@felo.gg).
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+The wire protocol is documented in `feishin_server_message.jsonc` and implemented
+in `src/feishin-client.ts`. Client → server: `authenticate` (HTTP Basic header),
+`play` / `pause` / `next` / `previous`, `volume` (absolute 0–100). Server →
+client: `state`, `playback`, `volume`, `song`. A single shared WebSocket with
+auto-reconnect backs all actions.
 
 ## License
 
-This project is licensed under the [GPL 3.0 license](LICENSE).
+GPL-3.0. Originally derived from Felodeck's Feishin plugin; rebuilt by jwowk.

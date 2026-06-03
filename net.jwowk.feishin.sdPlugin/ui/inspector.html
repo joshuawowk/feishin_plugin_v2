@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Feishin</title>
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<!-- All fields use `global` so the connection is shared by every Feishin
+		     action and only needs to be entered once. -->
+		<sdpi-item label="Host">
+			<sdpi-textfield
+				setting="host"
+				global
+				placeholder="t630.local or 192.168.0.160"
+			></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Port">
+			<sdpi-textfield setting="port" global placeholder="4333"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Username">
+			<sdpi-textfield setting="username" global placeholder="feishin"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Password">
+			<sdpi-password setting="password" global></sdpi-password>
+		</sdpi-item>
+
+		<sdpi-item label="Volume step (%)">
+			<sdpi-textfield setting="volumeStep" global placeholder="5"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Setup">
+			<sdpi-item-value>
+				These are the Remote Control settings from the Feishin host
+				(Settings → Remote Control). The same connection is used by all
+				Feishin buttons and dials.
+			</sdpi-item-value>
+		</sdpi-item>
+	</body>
+</html>
