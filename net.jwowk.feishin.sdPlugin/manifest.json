@@ -1,6 +1,6 @@
 {
 	"Name": "Feishin",
-	"Version": "2.0.0.0",
+	"Version": "2.1.0.0",
 	"Author": "jwowk",
 	"Actions": [
 		{
@@ -89,7 +89,7 @@
 				"Encoder"
 			],
 			"Encoder": {
-				"layout": "$B1",
+				"layout": "layouts/volume.json",
 				"TriggerDescription": {
 					"Rotate": "Adjust volume",
 					"Push": "Play / Pause",
@@ -122,6 +122,26 @@
 			"States": [
 				{
 					"Image": "imgs/actions/transport/key"
+				}
+			]
+		},
+		{
+			"Name": "Shuffle",
+			"UUID": "net.jwowk.feishin.shuffle",
+			"Icon": "imgs/actions/shuffle/icon",
+			"Tooltip": "Toggle shuffle on the connected Feishin host.",
+			"PropertyInspectorPath": "ui/inspector.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/shuffle/key",
+					"TitleAlignment": "bottom"
+				},
+				{
+					"Image": "imgs/actions/shuffle/key-on",
+					"TitleAlignment": "bottom"
 				}
 			]
 		}

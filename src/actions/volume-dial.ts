@@ -44,7 +44,7 @@ export class VolumeDial extends SingletonAction {
 		if (!ev.action.isDial()) return;
 		const v = feishin.state.volume;
 		void ev.action.setFeedback({
-			title: "Volume",
+			label: "Volume",
 			value: `${v}%`,
 			indicator: { value: v },
 		});

@@ -3,6 +3,7 @@ import streamDeck from "@elgato/streamdeck";
 import { NextTrack } from "./actions/next-track";
 import { PlayPause } from "./actions/play-pause";
 import { PreviousTrack } from "./actions/previous-track";
+import { Shuffle } from "./actions/shuffle";
 import { TransportDial } from "./actions/transport-dial";
 import { VolumeDial } from "./actions/volume-dial";
 import { VolumeDown } from "./actions/volume-down";
@@ -18,6 +19,7 @@ streamDeck.actions.registerAction(new VolumeUp());
 streamDeck.actions.registerAction(new VolumeDown());
 streamDeck.actions.registerAction(new VolumeDial());
 streamDeck.actions.registerAction(new TransportDial());
+streamDeck.actions.registerAction(new Shuffle());
 
 // Connection settings live in *global* settings so all actions share one
 // WebSocket. Configure on startup and whenever the Property Inspector saves.

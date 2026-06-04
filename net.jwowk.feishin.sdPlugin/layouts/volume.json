@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/layout.json",
+	"id": "feishin-volume",
+	"items": [
+		{
+			"key": "label",
+			"type": "text",
+			"rect": [12, 10, 92, 28],
+			"alignment": "left",
+			"color": "#ffffff",
+			"value": "Volume",
+			"font": { "size": 18, "weight": 600 }
+		},
+		{
+			"key": "value",
+			"type": "text",
+			"rect": [108, 10, 80, 28],
+			"alignment": "right",
+			"color": "#ffffff",
+			"font": { "size": 18, "weight": 600 }
+		},
+		{
+			"key": "indicator",
+			"type": "gbar",
+			"rect": [12, 54, 176, 30],
+			"subtype": 2,
+			"value": 0,
+			"bar_h": 14,
+			"border_w": 0,
+			"bar_bg_c": "0:#22c55e,0.65:#22c55e,1:#ef4444"
+		}
+	]
+}

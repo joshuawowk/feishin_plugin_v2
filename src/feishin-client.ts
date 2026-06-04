@@ -20,6 +20,7 @@ export type FeishinState = {
 	connection: ConnectionStatus;
 	status: "playing" | "paused" | "unknown";
 	volume: number; // 0-100
+	shuffle: boolean;
 	title: string;
 	artist: string;
 };
@@ -53,6 +54,7 @@ class FeishinClient {
 		connection: "disconnected",
 		status: "unknown",
 		volume: 0,
+		shuffle: false,
 		title: "",
 		artist: "",
 	};
@@ -190,9 +192,11 @@ class FeishinClient {
 				const d = (msg.data ?? {}) as {
 					status?: string;
 					volume?: number;
+					shuffle?: boolean;
 					song?: { name?: string; artistName?: string } | null;
 				};
 				if (typeof d.volume === "number") this.state.volume = d.volume;
+				if (typeof d.shuffle === "boolean") this.state.shuffle = d.shuffle;
 				this.state.status = normalizeStatus(d.status);
 				this.applySong(d.song);
 				this.notify();
@@ -206,6 +210,13 @@ class FeishinClient {
 			case "volume": {
 				if (typeof msg.data === "number") {
 					this.state.volume = clampVolume(msg.data);
+					this.notify();
+				}
+				break;
+			}
+			case "shuffle": {
+				if (typeof msg.data === "boolean") {
+					this.state.shuffle = msg.data;
 					this.notify();
 				}
 				break;
@@ -264,6 +275,14 @@ class FeishinClient {
 
 	previous(): void {
 		this.send({ event: "previous" });
+	}
+
+	toggleShuffle(): void {
+		// The Feishin "shuffle" event is a toggle; flip optimistically and let
+		// the server broadcast correct us.
+		this.send({ event: "shuffle" });
+		this.state.shuffle = !this.state.shuffle;
+		this.notify();
 	}
 
 	setVolume(volume: number): void {
