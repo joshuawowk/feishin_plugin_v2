@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><link rel="stylesheet" href="gallery.css">
+<style>
+.head { position: absolute; left: 80px; top: 64px; right: 80px; }
+.head .sub { margin-top: 14px; }
+.flow { position: absolute; left: 80px; top: 290px; display: flex; width: 1760px; justify-content: space-between; align-items: center; gap: 32px; }
+.box { border: 2px solid #2a2d33; border-radius: 18px; background: #15171b; padding: 28px 36px; font-size: 34px; font-weight: 600; text-align: center; width: 520px; }
+.box small { display: block; font-size: 24px; font-weight: 400; color: #a1a1aa; margin-top: 8px; }
+.link { font-size: 28px; color: #22c55e; text-align: center; width: 520px; }
+.link .line { height: 4px; background: #22c55e; margin: 10px 0; border-radius: 2px; }
+.grid { position: absolute; left: 80px; top: 540px; display: grid; grid-template-columns: repeat(8, 160px); gap: 30px 62px; }
+.cap { font-size: 22px; margin-top: 10px; text-align: center; }
+</style>
+<div class="head">
+  <h2>Connects to Feishin's <span class="accent">Remote Control</span></h2>
+  <p class="sub">Enter host, port and credentials once. Works with the Feishin desktop app or a server-side host.</p>
+</div>
+<div class="flow">
+  <div class="box">Stream Deck<small>This plugin</small></div>
+  <div class="link">WebSocket, port 4333<div class="line"></div>Basic authentication</div>
+  <div class="box">Feishin<small>Settings, Remote Control</small></div>
+</div>
+<div class="grid"><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/playpause/key@2x.png"><div class="cap">Play / Pause</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/next/key@2x.png"><div class="cap">Next</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/previous/key@2x.png"><div class="cap">Previous</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/shuffle/key@2x.png"><div class="cap">Shuffle</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/volumeup/key@2x.png"><div class="cap">Volume Up</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/volumedown/key@2x.png"><div class="cap">Volume Down</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/volumedial/key@2x.png"><div class="cap">Volume Dial</div></div><div class="cell"><img class="key" src="../../net.jwowk.feishin.sdPlugin/imgs/actions/transport/key@2x.png"><div class="cap">Transport Dial</div></div></div>
+<div class="foot"><span>Unofficial plugin for Feishin. Not affiliated with or endorsed by the Feishin project. GPL-3.0.</span><span>Windows and macOS</span></div>

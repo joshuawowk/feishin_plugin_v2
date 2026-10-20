@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8"><link rel="stylesheet" href="gallery.css">
+<style>
+.head { position: absolute; left: 80px; top: 64px; right: 80px; }
+.head .sub { margin-top: 14px; }
+.row { position: absolute; left: 80px; top: 300px; display: flex; gap: 40px; }
+.row .dial { transform: scale(0.9); transform-origin: top left; margin-right: -60px; margin-bottom: -30px; }
+.row .cap { margin-top: 0; }
+.two { position: absolute; left: 80px; top: 640px; right: 80px; display: flex; gap: 60px; font-size: 30px; color: #d4d4d8; line-height: 1.4; }
+.two b { color: #f4f4f5; }
+.two div { width: 820px; }
+</style>
+<div class="head">
+  <h2>Two dials for <span class="accent">Stream Deck +</span></h2>
+  <p class="sub">Turn for volume or for previous / next track. Press or tap to play and pause.</p>
+</div>
+<div class="row">
+  <div><div class="dial"><span class="lbl">Volume</span><span class="val">25%</span><div class="groove"><div class="fill" style="width:25%;--full:400%"></div></div></div><div class="cap">Volume at 25%</div></div>
+  <div><div class="dial"><span class="lbl">Volume</span><span class="val">60%</span><div class="groove"><div class="fill" style="width:60%;--full:167%"></div></div></div><div class="cap">Volume at 60%</div></div>
+  <div><div class="dial"><span class="lbl">Volume</span><span class="val">90%</span><div class="groove"><div class="fill" style="width:90%;--full:111%"></div></div></div><div class="cap">Volume at 90%</div></div>
+</div>
+<div class="two">
+  <div><b>Volume Dial</b><br>Rotate to change volume by your chosen step. The bar is green and turns red toward full volume.</div>
+  <div><b>Transport Dial</b><br>Rotate for previous or next track, press or tap to play and pause, and see the current track on the dial.</div>
+</div>
+<div class="foot"><span>Unofficial plugin for Feishin. Not affiliated with or endorsed by the Feishin project. GPL-3.0.</span><span>Windows and macOS</span></div>
