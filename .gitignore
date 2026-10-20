@@ -16,3 +16,6 @@ logs/
 
 # Packaged plugin installer
 *.streamDeckPlugin
+
+# Captured Feishin server messages (contain server URLs and auth params) — keep local only
+feishin_server_message*.jsonc
