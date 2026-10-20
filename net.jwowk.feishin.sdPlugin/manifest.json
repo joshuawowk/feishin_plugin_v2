@@ -1,7 +1,9 @@
 {
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
 	"Name": "Feishin",
 	"Version": "2.1.0.0",
 	"Author": "jwowk",
+	"URL": "https://github.com/joshuawowk/feishin_plugin_v2",
 	"Actions": [
 		{
 			"Name": "Play / Pause",
@@ -167,7 +169,7 @@
 	],
 	"Nodejs": {
 		"Version": "24",
-		"Debug": "enabled"
+		"Debug": "disabled"
 	},
 	"UUID": "net.jwowk.feishin"
 }
